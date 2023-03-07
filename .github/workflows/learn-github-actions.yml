@@ -15,4 +15,5 @@ jobs:
           node-version: '14'
       # run 表示在runner上执行命令
       - run: npm install -g bats
+      # print bats version
       - run: bats -v
