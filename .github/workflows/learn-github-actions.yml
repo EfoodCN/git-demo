@@ -1,18 +1,19 @@
-# This is a basic workflow to help you get started with Actions
-
 name: learn-github-actions
-
-# Controls when the workflow will run
+run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
+    # combine all action in steps
     steps:
+      # 运行action/checkout上的操作v3,该操作将存储库checkout到runner上
+      # 从而允许对代码运行脚本或其他操作,当workflow需要对存储库代码运行时,都需要该操作
       - uses: actions/checkout@v3
+      # 安装指定版本node.js
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
+      # run 表示在runner上执行命令
       - run: npm install -g bats
+      # print bats version
       - run: bats -v
