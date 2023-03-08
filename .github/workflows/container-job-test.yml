@@ -16,7 +16,7 @@ jobs:
         # Docker Hub image
         image: redis
 
-    -steps: 
+    steps: 
       # run 表示在runner上执行命令
       - run: npm install -g bats
       # print bats version
